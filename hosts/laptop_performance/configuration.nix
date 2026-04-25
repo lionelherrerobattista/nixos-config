@@ -30,13 +30,15 @@
         extraGroups = ["wheel" "networkmanager"];
     };
 
+    security.sudo.enable = true;
+
     environment.systemPackages = [
         pkgs.kitty
         pkgs.rofi
         pkgs.firefox
         pkgs.neovim
         pkgs.git
-        pkgs.thunar
+        pkgs.thunar # remove if error during first install
     ];
 
     zramSwap.enable = true;
