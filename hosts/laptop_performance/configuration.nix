@@ -49,9 +49,18 @@
         pkgs.networkmanagerapplet
     ];
 
+    fonts.packages = with pkgs [
+        inter
+        jetbrains-mono
+        fira-code
+        papirus-icon-theme
+    ];
+
+
     programs.thunar.enable = true;
 
-    programs.xfconf.enable = true; 	# for saving settings
+    programs.xfconf.enable = true; 	# saving settings for Xfce apps (legacy)
+    programs.dconf.enable = true;   # save settings for GTK apps
 
     services.gvfs.enable = true; 	# mounts, USB, trash
     services.tumbler.enable = true; 	# thumbnails
