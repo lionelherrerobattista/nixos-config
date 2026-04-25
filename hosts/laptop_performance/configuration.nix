@@ -30,13 +30,13 @@
         extraGroups = ["wheel" "networkmanager"];
     };
 
-    environment.systemPackages = with pkgs; [
-        kitty
-        rofi
-        firefox
-        neovim
-        git
-        thunar
+    environment.systemPackages = [
+        pkgs.kitty
+        pkgs.rofi
+        pkgs.firefox
+        pkgs.neovim
+        pkgs.git
+        pkgs.thunar
     ];
 
     zramSwap.enable = true;
