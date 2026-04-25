@@ -38,8 +38,19 @@
         pkgs.firefox
         pkgs.neovim
         pkgs.git
-        pkgs.thunar # remove if error during first install
+        pkgs.alsa-utils
+        pkgs.i3status
+        pkgs.dmenu
+        pkgs.picom
+
     ];
+
+    programs.thunar.enable = true;
+
+    programs.xfconf.enable = true; 	# for saving settings
+
+    services.gvfs.enable = true; 	# mounts, USB, trash
+    services.tumbler.enable = true; 	# thumbnails
 
     zramSwap.enable = true;
 
