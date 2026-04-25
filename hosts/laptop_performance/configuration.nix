@@ -32,24 +32,24 @@
 
     security.sudo.enable = true;
 
-    environment.systemPackages = [
-        pkgs.kitty
-        pkgs.rofi
-        pkgs.firefox
-        pkgs.neovim
-        pkgs.git
-        pkgs.alsa-utils
-        pkgs.pavucontrol
+    environment.systemPackages = with pkgs; [
+        kitty
+        rofi
+        firefox
+        neovim
+        git
+        alsa-utils
+        pavucontrol
 
         # i3
-        pkgs.i3status
-        pkgs.dmenu
-        pkgs.picom
-        pkgs.xclip
-        pkgs.networkmanagerapplet
+        i3status
+        dmenu
+        picom
+        xclip
+        networkmanagerapplet
     ];
 
-    fonts.packages = with pkgs [
+    fonts.packages = with pkgs; [
         inter
         jetbrains-mono
         fira-code
