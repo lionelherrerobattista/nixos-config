@@ -39,10 +39,14 @@
         pkgs.neovim
         pkgs.git
         pkgs.alsa-utils
+        pkgs.pavucontrol
+
+        # i3
         pkgs.i3status
         pkgs.dmenu
         pkgs.picom
-
+        pkgs.xclip
+        pkgs.networkmanagerapplet
     ];
 
     programs.thunar.enable = true;
