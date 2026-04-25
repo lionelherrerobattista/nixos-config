@@ -8,6 +8,7 @@
 
     time.timeZone = "America/Argentina/Buenos_Aires";
     i18n.defaultLocale = "en_US.UTF-8";
+    console.keyMap = "la-latin1";
 
     networking.networkmanager.enable = true;
 
@@ -20,6 +21,9 @@
     services.xserver.enable = true;
     services.xserver.windowManager.i3.enable = true;
     services.xserver.displayManager.lightdm.enable = true;
+    services.xserver.xkb = {
+        layout = "latam";
+    };
 
     users.users.lio = {
         isNormalUser = true;
