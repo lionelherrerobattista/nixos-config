@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 
 {
+    imports = [ ./hardware-configuration.nix ];
+
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
+
+    time.timeZone = "America/Argentina/Buenos_Aires";
+    i18n.defaultLocale = "en_US.UTF-8";
+
     networking.networkmanager.enable = true;
 
     services.pipewire = {
@@ -16,10 +24,10 @@
     users.users.lio = {
         isNormalUser = true;
         extraGroups = ["wheel" "networkmanager"];
-    }
+    };
 
     environment.systemPackages = with pkgs; [
-        alacritty
+        kitty
         rofi
         firefox
         neovim
