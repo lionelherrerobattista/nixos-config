@@ -56,12 +56,13 @@
         fira-code
         papirus-icon-theme
     ];
+
     fonts.fontconfig.enable = true; # proper font rendering
 
     gtk = {
         enable = true;
         iconTheme.name = "Papirus"; # set icon theme
-    }
+    };
 
     services.gvfs.enable = true; 	# mounts, USB, trash
     services.tumbler.enable = true; 	# thumbnails
