@@ -21,16 +21,12 @@
     services.xserver.enable = true;
     services.xserver.windowManager.i3.enable = true;
     services.xserver.displayManager.lightdm.enable = true;
-    services.xserver.xkb = {
-        layout = "latam";
-    };
+    services.xserver.xkb.layout = "latam";
 
     users.users.lio = {
         isNormalUser = true;
         extraGroups = ["wheel" "networkmanager"];
     };
-
-    security.sudo.enable = true;
 
     environment.systemPackages = with pkgs; [
         kitty
@@ -41,12 +37,17 @@
         alsa-utils
         pavucontrol
 
+        # defaults
+        xdg-utils       # to open things
+        xdg-user-dirs   # folder structure
+
         # i3
         i3status
         dmenu
         picom
         xclip
         networkmanagerapplet
+
     ];
 
     fonts.packages = with pkgs; [
@@ -55,15 +56,19 @@
         fira-code
         papirus-icon-theme
     ];
+    fonts.fontconfig.enable = true; # proper font rendering
 
-
-    programs.thunar.enable = true;
-
-    programs.xfconf.enable = true; 	# saving settings for Xfce apps (legacy)
-    programs.dconf.enable = true;   # save settings for GTK apps
+    gtk = {
+        enable = true;
+        iconTheme.name = "Papirus"; # set icon theme
+    }
 
     services.gvfs.enable = true; 	# mounts, USB, trash
     services.tumbler.enable = true; 	# thumbnails
+    programs.thunar.enable = true;
+    programs.xfconf.enable = true; 	# saving settings for Xfce apps (legacy)
+    programs.dconf.enable = true;   # save settings for GTK apps
+
 
     zramSwap.enable = true;
 
