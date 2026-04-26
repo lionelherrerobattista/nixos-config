@@ -70,14 +70,15 @@
     programs.xfconf.enable = true; 	# saving settings for Xfce apps (legacy)
     programs.dconf.enable = true;   # save settings for GTK apps
 
+    # portal - optional
     xdg.portal = {
         enable = true;
-
+        config.common.default = "gtk";
         extraPortals = with pkgs; [
             xdg-desktop-portal-gtk
         ];
     };
-    
+
     zramSwap.enable = true;
 
     environment.variables = {
