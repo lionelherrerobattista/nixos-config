@@ -41,6 +41,10 @@
         xdg-utils       # to open things
         xdg-user-dirs   # folder structure
 
+        # dialogs
+        xdg-desktop-portal
+        xdg-desktop-portal-gtk
+
         # theming
         papirus-icon-theme
         arc-theme
@@ -66,8 +70,14 @@
     programs.xfconf.enable = true; 	# saving settings for Xfce apps (legacy)
     programs.dconf.enable = true;   # save settings for GTK apps
 
-    xdg.portal.enable = true; # improve file pickers, desktop, flatpack
+    xdg.portal = {
+        enable = true;
 
+        extraPortals = with pkgs; [
+            xdg-desktop-portal-gtk
+        ];
+    };
+    
     zramSwap.enable = true;
 
     environment.variables = {
