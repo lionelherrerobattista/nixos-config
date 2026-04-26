@@ -41,28 +41,24 @@
         xdg-utils       # to open things
         xdg-user-dirs   # folder structure
 
+        # theming
+        papirus-icon-theme
+        arc-theme
+
         # i3
         i3status
         dmenu
         picom
         xclip
         networkmanagerapplet
-
+        
     ];
 
     fonts.packages = with pkgs; [
         inter
         jetbrains-mono
         fira-code
-        papirus-icon-theme
     ];
-
-    fonts.fontconfig.enable = true; # proper font rendering
-
-    gtk = {
-        enable = true;
-        iconTheme.name = "Papirus"; # set icon theme
-    };
 
     services.gvfs.enable = true; 	# mounts, USB, trash
     services.tumbler.enable = true; 	# thumbnails
@@ -70,8 +66,13 @@
     programs.xfconf.enable = true; 	# saving settings for Xfce apps (legacy)
     programs.dconf.enable = true;   # save settings for GTK apps
 
+    xdg.portal.enable = true; # improve file pickers, desktop, flatpack
 
     zramSwap.enable = true;
+
+    environment.variables = {
+        GTK_THEME = "Arc-Dark";
+    };
 
     system.stateVersion = "24.11";
 }
